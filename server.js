@@ -11,7 +11,7 @@ http2.createServer({
     var filename = path.join(__dirname, req.url);
     var stream = fs.createReadStream(filename);
 
-    if (req.url == '/index.html') {
+    if (req.url == '/index.html' || req.url == '/') {
         var $ = cheerio.load(fs.readFileSync(path.join(__dirname, '/index.html')));
 
         $('script[src*=".js"], link[href*=".css"]').each(function () {
